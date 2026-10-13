@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guitar Interval Trainer — No Shapes | Unlock the Guitar</title>
+<meta name="description" content="A fretboard interval trainer with no diagrams. Find intervals from any root, drill cells and constraints, and target chord tones over changes.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Unlock the Guitar · Free tool</div>
+    <h1>Interval Trainer</h1>
+    <p class="lede">Formulas only. There is no fretboard on this page. You work out where the notes are, then check yourself by ear.</p>
+  </header>
+
+  <nav class="modes" role="tablist" aria-label="Mode">
+    <button role="tab" data-mode="cells"><b>Cells</b><span>Play a formula in order</span></button>
+    <button role="tab" data-mode="locate"><b>Locate</b><span>Find one interval fast</span></button>
+    <button role="tab" data-mode="constraints"><b>Constraints</b><span>Cells with a rule</span></button>
+    <button role="tab" data-mode="changes"><b>Changes</b><span>Target tones in time</span></button>
+  </nav>
+
+  <section class="controls" id="controls" aria-label="Settings">
+    <div class="ctl" data-modes="cells constraints locate"><label class="lbl" for="root">Root</label><select id="root"></select></div>
+    <div class="ctl" data-modes="cells constraints"><label class="lbl" for="set">Formulas</label>
+      <select id="set"><option value="triads">Triads</option><option value="sevenths">Sevenths</option><option value="all">Everything</option></select></div>
+    <div class="ctl" data-modes="cells constraints"><span class="lbl">Notes from</span>
+      <div class="seg" data-key="src"><button data-v="formula">Formula</button><button data-v="scale">Formula + fills</button></div></div>
+    <div class="ctl" data-modes="cells constraints"><span class="lbl">Notes</span>
+      <div class="seg" data-key="count"><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></div></div>
+
+    <div class="ctl" data-modes="locate"><span class="lbl">Intervals</span>
+      <div class="seg" data-key="iv"><button data-v="tones">Chord tones</button><button data-v="all">All eleven</button></div></div>
+    <div class="ctl" data-modes="locate"><label class="lbl" for="str">String</label><select id="str"></select></div>
+    <div class="ctl" data-modes="locate"><span class="lbl">Timer</span>
+      <div class="seg" data-key="timer"><button data-v="on">On</button><button data-v="off">Off</button></div></div>
+
+    <div class="ctl" data-modes="changes"><label class="lbl" for="prog">Progression</label><select id="prog"></select></div>
+    <div class="ctl" data-modes="changes"><label class="lbl" for="key">Key</label><select id="key"></select></div>
+    <div class="ctl" data-modes="changes"><label class="lbl" for="tg">Targets</label>
+      <select id="tg"><option value="r">Roots</option><option value="f">5ths</option><option value="t">3rds</option><option value="s">7ths</option><option value="ts">3rds and 7ths</option><option value="all">All chord tones</option></select></div>
+    <div class="ctl" data-modes="changes"><label class="lbl" for="bpm">Tempo</label><input id="bpm" type="number" min="40" max="200" step="5"></div>
+    <div class="ctl" data-modes="changes"><span class="lbl">Beats per chord</span>
+      <div class="seg" data-key="bpc"><button data-v="2">2</button><button data-v="4">4</button><button data-v="8">8</button></div></div>
+    <div class="ctl" data-modes="changes"><span class="lbl">Chord sound</span>
+      <div class="seg" data-key="chordSound"><button data-v="on">On</button><button data-v="off">Off</button></div></div>
+  </section>
+
+  <section class="stage" id="stage" aria-live="polite"></section>
+  <div class="actions" id="actions"></div>
+  <p class="keys" id="keys"></p>
+
+  <aside class="cta">
+    <div class="eyebrow">The method</div>
+    <p>This tool drills the system in <a href="https://unlocktheguitar.net/no-shapes.html" target="_blank" rel="noopener">No Shapes</a>, a pocket manual: one octave shape, one interval map and a page of formulas. Nothing else.</p>
+  </aside>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
