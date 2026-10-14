@@ -5,20 +5,21 @@ img{max-width:100%}
 /* Layout: one narrow column — mode tabs, labelled controls, one big stage, actions. UTG monochrome system, colour only on the root. */
 :root{
   --bg:#f6f6f5; --surface:#ffffff; --fill:#efefee; --fg:#0a0a0a; --muted:#6f6f6f; --rule:#d8d8d8;
-  --root:#b8682f; --invert-fg:#ffffff;
+  --root:#b8682f; --invert-fg:#ffffff; color-scheme:light;
   --display:"Archivo","Helvetica Neue",Arial,sans-serif;
   --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121314; --surface:#18191b; --fill:#202124; --fg:#ececec; --muted:#9a9a9a; --rule:#2e2f33;
-  --root:#e09a62; --invert-fg:#0a0a0a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121314; --surface:#18191b; --fill:#202124; --fg:#ececec; --muted:#9a9a9a; --rule:#2e2f33;
   --root:#e09a62; --invert-fg:#0a0a0a; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
 .wrap{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:20px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.top > div:first-child{min-width:0}
+.theme-seg{flex:none;margin-top:2px}
+.theme-seg button{font-size:13px;padding:6px 11px;min-height:32px}
 .eyebrow,.lbl{font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,6vw,48px);line-height:1;margin:6px 0 8px;letter-spacing:-.01em}
 .lede{margin:0;color:var(--muted);max-width:60ch}

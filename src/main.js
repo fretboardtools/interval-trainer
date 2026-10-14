@@ -171,7 +171,7 @@ function fillSelects(){
  $('#prog').innerHTML=Object.keys(PROGS).map(k=>'<option value="'+k+'">'+PROGS[k].name+'</option>').join('');
  ['root','set','str','prog','key','tg'].forEach(id=>{const e=$('#'+id);e.value=S[id];e.onchange=()=>{S[id]=e.value;save();if(S.mode==='changes'&&id==='tg'){render();}else{stopPlay();next();}};});
  const bpm=$('#bpm');bpm.value=S.bpm;bpm.onchange=()=>{S.bpm=Math.min(200,Math.max(40,+bpm.value||90));bpm.value=S.bpm;save();};
- document.querySelectorAll('.seg').forEach(g=>{const k=g.dataset.key;g.querySelectorAll('button').forEach(b=>{b.setAttribute('aria-pressed',String(S[k]===b.dataset.v));b.onclick=()=>{S[k]=b.dataset.v;save();g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ document.querySelectorAll('.seg[data-key]').forEach(g=>{const k=g.dataset.key;g.querySelectorAll('button').forEach(b=>{b.setAttribute('aria-pressed',String(S[k]===b.dataset.v));b.onclick=()=>{S[k]=b.dataset.v;save();g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
    if(k==='chordSound')return; if(k==='bpc'){render();return;} if(k==='timer'){render();return;} stopPlay();next();};});});
  document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));}
 function setMode(m){stopPlay();S.mode=m;save();
@@ -182,6 +182,12 @@ function setMode(m){stopPlay();S.mode=m;save();
 document.addEventListener('keydown',e=>{if(e.target.matches('select,input'))return;const k=e.key.toLowerCase();
  if(k===' '){e.preventDefault();S.mode==='locate'?got():S.mode==='changes'?togglePlay():next();}
  else if(k==='r')toggleReveal();else if(k==='p')play();else if(k==='s'&&S.mode==='locate')next();else if(k==='n'&&S.mode==='changes'){stopPlay();next();}});
+
+// ---------- theme (light by default, choice remembered) ----------
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('.theme-seg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===t)));}
+let theme='light';try{if(localStorage.getItem('utg-it-theme')==='dark')theme='dark';}catch(e){}
+applyTheme(theme);
+document.querySelectorAll('.theme-seg button').forEach(b=>b.onclick=()=>{applyTheme(b.dataset.t);try{localStorage.setItem('utg-it-theme',b.dataset.t);}catch(e){}});
 
 fillSelects();setMode(S.mode);
 })();

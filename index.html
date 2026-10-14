@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guitar Interval Trainer — No Shapes | Unlock the Guitar</title>
 <meta name="description" content="A fretboard interval trainer with no diagrams. Find intervals from any root, drill cells and constraints, and target chord tones over changes.">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('utg-it-theme')==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +13,13 @@
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="top">
+    <div>
     <div class="eyebrow">Unlock the Guitar · Free tool</div>
     <h1>Interval Trainer</h1>
     <p class="lede">Formulas only. There is no fretboard on this page. You work out where the notes are, then check yourself by ear.</p>
+    </div>
+    <div class="seg theme-seg" role="group" aria-label="Theme"><button data-t="light">Light</button><button data-t="dark">Dark</button></div>
   </header>
 
   <nav class="modes" role="tablist" aria-label="Mode">

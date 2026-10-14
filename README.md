@@ -27,7 +27,7 @@ Push to GitHub and import the repo in Vercel. It detects Vite, builds with `npm 
 ## Embed
 
 ```html
-<iframe src="https://YOUR-PROJECT.vercel.app/" title="Guitar Interval Trainer" style="width:100%;height:900px;border:0" loading="lazy" allow="autoplay"></iframe>
+<iframe src="https://interval-trainer-psi.vercel.app/" title="Guitar Interval Trainer" style="width:100%;height:900px;border:0" loading="lazy" allow="autoplay"></iframe>
 ```
 
 ## Files
